@@ -1,0 +1,1 @@
+KERNEL=="event[0-9]*", SUBSYSTEM=="input", ATTRS{name}=="TPPS/2 IBM TrackPoint", SYMLINK="trackpoint", TAG+="systemd"

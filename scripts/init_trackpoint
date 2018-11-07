@@ -1,0 +1,75 @@
+#!/usr/bin/python3
+
+"""
+Use mouse buttons of trackpad as CTRL, Return and ALT and
+the trackpoint as arrow keys.
+"""
+
+from evdev import UInput, InputDevice, categorize, ecodes as E
+
+
+DEV = InputDevice('/dev/trackpoint')
+UI = UInput()
+
+# see /usr/include/linux/input-event-codes.h for e.codes
+BUTTON_KEY = {
+    # left
+    272: E.KEY_LEFTALT,
+    # middle
+    274: E.KEY_ENTER,
+    # right
+    273: E.KEY_LEFTCTRL,
+}
+
+
+
+def trigger_key(key,event):
+    UI.write(E.EV_KEY, key, event.value)
+    UI.syn()
+
+def press_key(key):
+    UI.write(E.EV_KEY, key, 1)
+    UI.write(E.EV_KEY, key, 0)
+    UI.syn()
+
+def get_key_for_event(event):
+    key = None
+
+    if event.code == 1 and event.value <= -1:
+        key = E.KEY_UP
+    elif event.code == 1 and event.value >= 1:
+        key = E.KEY_DOWN
+    elif event.code == 0 and event.value <= -1:
+        key = E.KEY_LEFT
+    elif event.code == 0 and event.value >= 1:
+        key = E.KEY_RIGHT
+
+    return key
+
+
+def main():
+
+    count = 0
+    key = None
+    lastkey = None
+
+    # Infinite event monitoring loop
+    for event in DEV.read_loop():
+        # mod keys
+        bkey = BUTTON_KEY.get(event.code)
+
+        if bkey:
+            trigger_key(bkey, event)
+
+        # ARROW NAV
+        if key:
+            lastkey = key
+        key = get_key_for_event(event)
+
+        if key and ((key != lastkey and abs(event.value) > 2) or key == lastkey):
+            press_key(key)
+
+
+
+if __name__=='__main__':
+    main()

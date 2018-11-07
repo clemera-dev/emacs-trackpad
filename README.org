@@ -1,0 +1,59 @@
+* Dependencies
+
+Install library for pseudo keyboard
+
+#+BEGIN_SRC sh
+sudo apt install python3-evdev
+#+END_SRC
+
+* Trackpoint setup
+
+Clone repository and cd to it. Make trackpoint always available as
+/dev/trackpoint and configure speed and sensitivity (you might want to
+adjust those values in the rules file.
+
+#+BEGIN_SRC sh
+cp conf/*trackpoint*rules /etc/udev/rules.d/
+#+END_SRC
+
+Load the uinput module, for the fake keyboard events.
+#+BEGIN_SRC sh
+cp conf/uinput.conf /etc/modules-load.d/
+#+END_SRC
+
+Add remapping script. 
+
+#+BEGIN_SRC sh
+sudo cp scripts/init_trackpoint /usr/local/bin/init_trackpoint
+sudo chmod u+x /usr/local/bin/init_trackpoint
+#+END_SRC
+
+Create systemd unit at /etc/systemd/system/trackpoint_remap.service to
+start the above skript on boot.
+
+#+BEGIN_SRC sh
+[Unit]
+BindsTo=dev-my_trackpoint.device
+After=dev-my_trackpoint.device
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/init_trackpoint
+
+[Install]
+WantedBy=multi-user.target
+#+END_SRC
+
+Afterwards enable the service and start it.
+
+#+BEGIN_SRC sh
+sudo systemctl enable trackpoint_remap.service
+sudo systemctl start trackpoint_remap.service
+#+END_SRC
+
+
+Add the following to your ~/.profile to disable mouse pointer
+functionality of the trackpoint:
+#+BEGIN_SRC sh
+xinput disable "TPPS/2 IBM TrackPoint"
+#+END_SRC
