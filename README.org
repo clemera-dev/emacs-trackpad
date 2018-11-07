@@ -1,3 +1,5 @@
+See [[https://www.with-emacs-com/posts/a-keyboard-with-thumb-modifiers-and-Emacs-cursor-joystick/][here]] for the corresponding blog post.
+
 * Dependencies
 
 Install library for pseudo keyboard
