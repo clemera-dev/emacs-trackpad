@@ -71,3 +71,15 @@ not effect C-f/b only arrow-key/trackpoint):
 (define-advice left-char (:before-until (&rest args) stay-in-line)
   (bolp))
 #+END_SRC
+
+
+To get sticky key functionality you can use
+
+#+BEGIN_SRC elisp
+sudo apt install xkbset
+xkbset sticky -twokey -latchlock
+xkbset exp 1 =accessx =sticky =twokey =latchlock
+# for more see also
+#sudo apt install xvkbd
+#sudo apt install xbindkeys
+#+END_SRC
