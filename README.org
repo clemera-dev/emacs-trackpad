@@ -1,4 +1,5 @@
-See [[https://www.with-emacs-com/posts/a-keyboard-with-thumb-modifiers-and-Emacs-cursor-joystick/][here]] for the corresponding blog post.
+See [[https://www.with-emacs-com/posts/a-keyboard-with-thumb-modifiers-and-Emacs-cursor-joystick/][here]] for the corresponding blog post. See also my old way of doing
+it [[https://www.reddit.com/r/emacs/comments/4v5tfy/my_new_favourite_keyboard_hack_use_the_trackpoint/][here]]
 
 * Dependencies
 
