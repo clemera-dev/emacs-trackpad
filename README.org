@@ -57,3 +57,14 @@ functionality of the trackpoint:
 #+BEGIN_SRC sh
 xinput disable "TPPS/2 IBM TrackPoint"
 #+END_SRC
+
+
+Add the following elisp snippet to improve trackpoint movement (does
+not effect C-f/b only arrow-key/trackpoint):
+#+BEGIN_SRC elisp
+(define-advice right-char (:before-until (&rest args) stay-in-line)
+  (eolp))
+
+(define-advice left-char (:before-until (&rest args) stay-in-line)
+  (bolp))
+#+END_SRC
