@@ -1,0 +1,82 @@
+! first clear all modifiers
+clear Lock
+clear Shift
+clear mod1
+clear mod2
+clear mod3
+clear mod4
+clear mod5
+
+! altgr
+keycode 54 = Mode_switch Mode_switch
+! shift key used for hyper (C-M)
+keycode 66 = Hyper_L
+keycode 36 = Hyper_L
+! 4 and 8 used with middle finger
+keycode 13 = Super_L
+keycode 17 = Super_L
+keycode 51 = Caps_Lock
+
+! add modifiers back
+add     shift = Shift_L Shift_R
+add     control = Control_L Control_R
+add        mod1 = Alt_L Alt_R Meta_L
+add        mod2 = Num_Lock
+add        mod3 = Hyper_L Hyper_R
+add        mod4 = Super_L Super_R
+add        mod5 = Mode_switch ISO_Level3_Shift
+add Lock = Caps_Lock
+
+
+! when init_script emits f9 for middle mouse button
+keycode 75 = Return
+! undo
+keycode 22 = F7
+! my-other-buffer on backspace
+keycode 65 = space space underscore 
+!free
+keycode 35 = underscore
+! cycle to previous buffer
+keycode 52 = F7
+keycode 18 = BackSpace BackSpace parenright
+keycode 34 = numbersign
+keycode 53 = F5
+
+! extra signs
+keycode 59 = comma colon colon
+keycode 60 = period semicolon semicolon
+
+keycode 61 = z Z grave
+keycode 56 = j J bar
+keycode 38 = i I percent
+keycode 30 = m M asterisk
+keycode 42 = b B 
+keycode 43 = f F slash
+keycode 31 = t T parenleft
+keycode 44 = s S greater
+keycode 58 = c C braceright
+keycode 57 = n N bracketright
+keycode 45 = r R less
+keycode 27 = p P bracketleft
+keycode 25 = g G at
+keycode 47 = l L quotedbl
+keycode 46 = h H question
+keycode 33 = q Q apostrophe
+keycode 29 = w W plus
+keycode 39 = u U asciicircum
+keycode 32 = d D minus
+keycode 40 = a A braceleft
+keycode 41 = e E exclam 
+keycode 55 = y Y ampersand
+keycode 48 = v V equal
+keycode 24 = x X dollar
+keycode 26 = o O backslash
+keycode 28 = k K
+
+!number keys
+keycode 49 = 0 0
+keycode 12 = 3 4
+keycode 16 = 7 8
+keycode 19 = asciitilde
+keycode 20 = 9 9 
+keycode 21 = 9 9 

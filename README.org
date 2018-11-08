@@ -79,7 +79,7 @@ To get sticky key functionality you can use
 sudo apt install xkbset
 xkbset sticky -twokey -latchlock
 xkbset exp 1 =accessx =sticky =twokey =latchlock
-# for more see also
+# for more see also .xmodmap/.xbindkeysrc in conf dir
 #sudo apt install xvkbd
 #sudo apt install xbindkeys
 #+END_SRC
