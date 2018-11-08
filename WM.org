@@ -1,0 +1,64 @@
+* WM configuration
+
+This file describes how to setup a custom Xsession for using exwm.
+For more info see:
+
+https://wiki.ubuntu.com/CustomXSession
+https://wiki.debian.org/Xsession
+
+Setup a desktopfile for the display manager. This will appear in the menu.
+The file should just run Xsession script which in turn will run .xsession.
+
+/usr/share/xsessions/emacs.desktop
+#+BEGIN_SRC sh
+[Desktop Entry]
+Type=Application
+Name=EmacsWM
+Comment=This runs ~/.xsession
+Exec=/etc/X11/Xsession
+#+END_SRC
+
+
+Then setup the session script, which will be executed with above
+config. Dont forget to make it executable afterwards.
+
+~/.xsession 
+#+BEGIN_SRC sh
+#!/usr/bin/env bash
+
+# disable normal mouse behaviour 
+xinput disable "TPPS/2 IBM TrackPoint"
+
+# basic gnome functionalty, fonts etc
+gnome-settings-daemon & # 
+
+# load custom key layout
+xmodmap ~/.Xmodmap
+
+
+# sticky keys
+xkbset sticky -twokey -latchlock
+xkbset exp 1 =accessx =sticky =twokey =latchlock
+
+# workaround for some keys
+xbindkeys &
+
+# magic
+exec emacs --eval "(progn (require 'exwm) (require 'exwm-config) (defun exwm-config-ido ()) (exwm-config-default))"
+#+END_SRC
+
+
+Now choosing emacsWM in display manager, will start the Desktop with exwm.
+
+To make it possible to start an ubuntu gnome-session via startx from vt (copied from
+ubuntu.desktop in xsession dir:
+
+.xinitrc
+#+BEGIN_SRC sh
+#!/bin/bash
+
+env GNOME_SHELL_SESSION_MODE=ubuntu gnome-session --session=ubuntu
+#+END_SRC
+
+
+
