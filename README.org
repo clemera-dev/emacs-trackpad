@@ -80,6 +80,7 @@ sudo apt install xkbset
 xkbset sticky -twokey -latchlock
 xkbset exp 1 =accessx =sticky =twokey =latchlock
 # for more see also .xmodmap/.xbindkeysrc in conf dir
+# and WM.org for using exwm
 #sudo apt install xvkbd
 #sudo apt install xbindkeys
 #+END_SRC
