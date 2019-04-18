@@ -131,6 +131,7 @@ Once the hyper key is enabled we can set it as Control replacement in Firefox
 in =about:config= by setting mapping it to its key [[https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode][code]]:
 
 #+begin_src sh
+# use 18 for alt
 ui.key.accelKey > 91
 #+end_src
 
