@@ -1,0 +1,51 @@
+[/]
+screenshot-clip=''
+control-center=''
+area-screenshot-clip=''
+screenshot=''
+terminal=''
+calculator=''
+email=''
+window-screenshot-clip=''
+screencast=''
+window-screenshot=''
+www=''
+search=''
+help=''
+home=''
+area-screenshot=''
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/']
+
+[custom-keybindings/custom6]
+command='start-or-focus vlc'
+name='last'
+
+[custom-keybindings/custom2]
+binding='F6'
+command='start-or-focus firefox '
+name='firefox'
+
+[custom-keybindings/custom5]
+binding=''
+command='wmctrl -xa vlc'
+name='snap-right'
+
+[custom-keybindings/custom1]
+binding='F9'
+command='start-or-focus emacs'
+name='emacs'
+
+[custom-keybindings/custom4]
+binding='F8'
+command='start-or-focus gnome-terminal'
+name='gnome-terminal'
+
+[custom-keybindings/custom0]
+binding='Insert'
+command='/home/clemera/.emacs_anywhere/bin/run'
+name='emacs-anywhere'
+
+[custom-keybindings/custom3]
+binding='F7'
+command='start-or-focus thunderbird'
+name='thunderbid'
