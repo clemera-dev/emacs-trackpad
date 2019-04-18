@@ -60,8 +60,6 @@ ubuntu.desktop in xsession dir:
 env GNOME_SHELL_SESSION_MODE=ubuntu gnome-session --session=ubuntu
 #+END_SRC
 
-
-
 * Enable Hyper key
 
 From [[https://github.com/logicbomb/linux-config][here]]:
@@ -89,3 +87,11 @@ Line 53: modifier_map Mod4 { <SUPR> }; -> modifier_map Mod3 { <SUPR> };
 NOTE The drawback to this method is that if an update or program makes a
 change to the keyboard configuration file, changes are lost and need to be
 reapplied.
+* Save and restore gnome keys
+
+dconf dump /org/gnome/desktop/wm/keybindings/ > keybindings.dconf
+dconf dump /org/gnome/settings-daemon/plugins/media-keys/ > mkeybindings.dconf
+
+
+dconf load /org/gnome/desktop/wm/keybindings/ < keybindings.dconf
+dconf load /org/gnome/settings-daemon/plugins/media-keys/ < mkeybindings.dconf
