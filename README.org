@@ -96,7 +96,9 @@ session by modifying the xkb configuration.
 
 NOTE Make a copy fo the file to be modified:
 
+#+begin_src sh
 sudo cp /usr/share/x11/xkb/symbols/pc /usr/share/x11/xkb/symbols/pc.ORIG
+#+end_src
 
 We are going to change the modifier of the Super key from Mod3 to Mod4, this
 leaves the Hyper assigned to Mod4 and the OS can disambiguate the 2 keys.
@@ -113,9 +115,12 @@ change to the keyboard configuration file, changes are lost and need to be
 reapplied.
 * Save and restore gnome keys
 
+#+begin_src sh
 dconf dump /org/gnome/desktop/wm/keybindings/ > keybindings.dconf
 dconf dump /org/gnome/settings-daemon/plugins/media-keys/ > mkeybindings.dconf
+#+end_src
 
-
+#+begin_src sh
 dconf load /org/gnome/desktop/wm/keybindings/ < keybindings.dconf
 dconf load /org/gnome/settings-daemon/plugins/media-keys/ < mkeybindings.dconf
+#+end_src
