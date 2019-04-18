@@ -113,6 +113,7 @@ Line 53: modifier_map Mod4 { <SUPR> }; -> modifier_map Mod3 { <SUPR> };
 NOTE The drawback to this method is that if an update or program makes a
 change to the keyboard configuration file, changes are lost and need to be
 reapplied.
+
 * Save and restore gnome keys
 
 #+begin_src sh
@@ -124,3 +125,22 @@ dconf dump /org/gnome/settings-daemon/plugins/media-keys/ > mkeybindings.dconf
 dconf load /org/gnome/desktop/wm/keybindings/ < keybindings.dconf
 dconf load /org/gnome/settings-daemon/plugins/media-keys/ < mkeybindings.dconf
 #+end_src
+* Firefox key setup
+
+Once the hyper key is enabled we can set it as Control replacement in Firefox
+in =about:config= by setting mapping it to its key [[https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode][code]]:
+
+#+begin_src sh
+ui.key.accelKey > 91
+#+end_src
+
+Do the same for thunderbird (Preferences > Advanced > Congig Editor).
+
+In addition to that enable Emacs keybindings for dev tools
+
+#+begin_src sh
+devtools.editor.keymap > emacs
+#+end_src
+
+Now Emacs gnome key bindings (C-n/p) will work in firefox, too. To open a
+new tab use H-t etc.
