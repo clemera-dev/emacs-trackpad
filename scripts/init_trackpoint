@@ -12,6 +12,8 @@ DEV = InputDevice('/dev/trackpoint')
 UI = UInput()
 
 # see /usr/include/linux/input-event-codes.h for e.codes
+# use console (C-M-f2) and showkey to see the keycodes
+# any xmodmap remappings are applied afterwards 
 BUTTON_KEY = {
     # left
     272: E.KEY_LEFTALT,
