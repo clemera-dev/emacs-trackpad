@@ -32,12 +32,12 @@ sudo chmod u+x /usr/local/bin/init_trackpoint
 #+END_SRC
 
 Create systemd unit at /etc/systemd/system/trackpoint_remap.service to
-start the above skript on boot.
+start the above skript on boot. /dev/trackpoint translates to dev-trackpoint.device.
 
 #+BEGIN_SRC sh
 [Unit]
-BindsTo=dev-my_trackpoint.device
-After=dev-my_trackpoint.device
+BindsTo=dev-trackpoint.device
+After=dev-trackpoint.device
 
 [Service]
 Type=simple
